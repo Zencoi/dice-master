@@ -19,7 +19,6 @@ class XDefaultBoard extends HTMLElement {
         const dice = document.createElement('x-dice');
         const self = this;
         dice.addEventListener('onDiceRolled', function (value) {
-            console.log('onDiceRolled', value);
             self.refreshScore();
         });
         this.diceContainers.appendChild(dice);

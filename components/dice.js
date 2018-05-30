@@ -22,11 +22,11 @@ class XDice extends HTMLElement {
         if (this.isRolling) return;
         this.isRolling = true;
         var count = 10;
-        var oldRandom = 0;
+        var oldRandom = null;
         var animationId = setInterval(function () {
-            var random = 0;
-            while (oldRandom == random || random == 0) {
-                random = Math.ceil(Math.random() * (this.maxValue - parseInt(this.minValue, 10))) + parseInt(this.minValue, 10);
+            var random = null;
+            while (oldRandom == random || random == null) {
+                random = Math.ceil(Math.random() * (this.maxValue - (this.minValue - 1))) + (this.minValue - 1);
             }
             oldRandom = random;
 
