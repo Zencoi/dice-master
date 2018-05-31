@@ -53,11 +53,13 @@ class XDefaultBoard extends HTMLElement {
 
         const addButton = document.createElement('button');
         addButton.setAttribute('type', 'button');
+        addButton.classList.add('small-button');
         addButton.appendChild(document.createTextNode('+'));
         addButton.onclick = this.addDice;
 
         const removeButton = document.createElement('button');
         removeButton.setAttribute('type', 'button');
+        removeButton.classList.add('small-button');
         removeButton.appendChild(document.createTextNode('-'));
         removeButton.onclick = this.removeDice;
 
@@ -89,6 +91,9 @@ class XDefaultBoard extends HTMLElement {
                 margin: 10px;
                 font-size: 40px;
                 padding: 20px;
+            }
+            .small-button {
+                width: 70px;
             }
             .score-container {
                 text-align: center;

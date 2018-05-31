@@ -13,6 +13,9 @@ class X5000Board extends HTMLElement {
 
         this.init.call(this);
 
+        const shadow = this.attachShadow({ mode: 'open' });
+
+        shadow.appendChild(currentScoreContainer)
     }
 }
 

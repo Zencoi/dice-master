@@ -7,9 +7,8 @@
     </head>
     <body>
 
-    <x-default-board />
-    <script src="components/dice.js"></script>
-    <script src="components/default-board.js"></script>
+    <x-player-tab />
+    <script src="components/5000/player-tab.js"></script>
 
     </body>
 </html> 
