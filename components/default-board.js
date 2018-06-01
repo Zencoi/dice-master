@@ -11,8 +11,7 @@ class XDefaultBoard extends HTMLElement {
         this.diceContainers = document.createElement('div');
         this.commandContainer = document.createElement('div');
 
-        for (let i = 0; i < 5; i++) { this.addDice(); }
-        this.refreshScore();
+        for (let i = 0; i < 3; i++) { this.addDice(); }
     }
 
     addDice() {
@@ -37,7 +36,7 @@ class XDefaultBoard extends HTMLElement {
 
     refreshScore() {
         let total = 0;
-        [].forEach.call(this.diceContainers.children, dice => total += dice.value);
+        [].forEach.call(this.diceContainers.children, function (dice) { total += dice.getValue ? dice.getValue() : 1; });
         if (this.scoreContainer.firstChild != null) this.scoreContainer.removeChild(this.scoreContainer.firstChild);
         this.scoreContainer.appendChild(document.createTextNode(total));
     }

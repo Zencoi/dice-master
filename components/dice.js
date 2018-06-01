@@ -11,6 +11,7 @@ class XDice extends HTMLElement {
         });
         this.roll = this.roll.bind(this);
         this.updateWrapper = this.updateWrapper.bind(this);
+        this.getValue = this.getValue.bind(this);
     }
     
     updateWrapper(value) {
@@ -44,10 +45,15 @@ class XDice extends HTMLElement {
         }.bind(this), 100);
     }
 
+    getValue() {
+        return this.value || 0;
+    }
+
     constructor() {
         super();
 
         this.init.call(this);
+        console.log('ok');
 
         var shadow = this.attachShadow({ mode: 'open' });
         
