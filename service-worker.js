@@ -1,9 +1,9 @@
 var filesToCache = [
     '.',
     'index.html',
+    'main.js',
     'components/default-board.js',
     'components/dice.js'
-  
   ];
   
   var staticCacheName = 'pages-cache-v1';

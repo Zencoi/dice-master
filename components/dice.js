@@ -53,7 +53,6 @@ class XDice extends HTMLElement {
         super();
 
         this.init.call(this);
-        console.log('ok');
 
         var shadow = this.attachShadow({ mode: 'open' });
         
