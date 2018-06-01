@@ -6,7 +6,7 @@ var filesToCache = [
     'components/dice.js'
   ];
   
-  var staticCacheName = 'pages-cache-v1';
+  var staticCacheName = 'pages-cache-v2';
   
   self.addEventListener('install', function(event) {
     console.log('Attempting to install service worker and cache static assets');
@@ -17,6 +17,25 @@ var filesToCache = [
       })
     );
   });
+
+  self.addEventListener('activate', function(event) {
+    console.log('Activating new service worker...');
+  
+    var cacheWhitelist = [staticCacheName];
+  
+    event.waitUntil(
+      caches.keys().then(function(cacheNames) {
+        return Promise.all(
+          cacheNames.map(function(cacheName) {
+            if (cacheWhitelist.indexOf(cacheName) === -1) {
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      })
+    );
+  });
+  
   
   self.addEventListener('fetch', function(event) {
     console.log('Fetch event for ', event.request.url);
